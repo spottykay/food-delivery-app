@@ -1,0 +1,14 @@
+.bg{
+background-image: url('./food-for-hero.jpg');
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+height:300px;
+position: relative;
+}
+
+
+.bt{
+    background-color: #ffffffe0;
+    border-radius: 0px;
+}

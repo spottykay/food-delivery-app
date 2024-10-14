@@ -1,0 +1,45 @@
+
+
+.hero{
+    height: 500px;
+    /* background: url('/Components/food-for-hero.jpg'); */
+    background: url('../src/assets/food-for-hero.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    
+}
+
+.overlay,.overlay2{
+    background-color: rgb(16, 16, 16);
+    opacity: 0.3;
+    height:100%;
+    width:100%;
+    position: absolute;
+    z-index: 1;
+    top:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+
+
+
+
+
+
+.content{
+    position: relative;
+    z-index:2;
+    color:white;
+
+}
+
+
+.hero-content{
+    
+}
+.hero-content img.edurekaImg{
+width: 100px;    
+}

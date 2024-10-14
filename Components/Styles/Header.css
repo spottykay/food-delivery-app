@@ -1,0 +1,29 @@
+.transparent-header{
+    position:absolute;
+    top:0;
+    width:100%;
+    background-color: transparent;
+    z-index: 1000;
+    padding:15px
+}
+
+.red-header{
+    background-color: red;
+}
+.logo-img{
+    border-radius: 50%;
+}
+
+.header-buttons button{
+    color:white;
+    border:1px solid white;
+    border-radius: 10px;
+    background-color: transparent;
+    padding:8px 13px;
+
+}
+
+.header-buttons button:hover{
+    background-color: white;
+    color: #000;
+}
