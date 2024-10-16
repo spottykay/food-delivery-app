@@ -6,32 +6,25 @@ import helmet from 'helmet';
 import morgan from 'morgan';
 import path from 'path';
 
-// Import auth routes with .js extension
+// Import auth routes
 import authRoutes from './routes/auth.js';
-
-//import mealtypes.js route
 import mealtypeRoutes from './routes/mealtypes.js';
-
-
 
 // Load environment variables
 dotenv.config();
 
 const app = express();
 
-//images-folder
+// Serve static files from the "src/assets" folder
 app.use('/src/assets', express.static(path.join(process.cwd(), 'src/assets'))); // Use process.cwd() for ES modules
-
 
 // Middleware
 app.use(express.json());
 app.use(cors({
-  // origin: 'http://localhost:5173', // Your frontend URL
   origin: '*', // Temporarily allow all origins
 }));
 app.use(helmet());
 app.use(morgan('dev'));
-
 
 // Log every request
 app.use((req, res, next) => {
@@ -39,24 +32,14 @@ app.use((req, res, next) => {
   next();
 });
 
-
 // Use the auth routes with the correct path prefix
 app.use('/api/auth', authRoutes); 
-
 app.use('/api/mealtypes', mealtypeRoutes);
 
-
-// mongoose.connect(process.env.MONGO_URI)
-//   .then(() => console.log('Connected to MongoDB Atlas'))
-//   .catch((err) => console.error('Error connecting to MongoDB Atlas:', err));
-
-
-
-
-// MongoDB connection
-mongoose.connect(process.env.DB_CONNECT_STRING)
-  .then(() => console.log('Connected to MongoDB'))
-  .catch((err) => console.error('Error connecting to MongoDB:', err));
+// MongoDB Atlas connection
+mongoose.connect(process.env.MONGO_URI)
+  .then(() => console.log('Connected to MongoDB Atlas'))
+  .catch((err) => console.error('Error connecting to MongoDB Atlas:', err));
 
 // Base route for health check or testing
 app.get('/', (req, res) => {
@@ -74,5 +57,3 @@ const PORT = process.env.PORT || 5010;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
-
-
