@@ -13,6 +13,7 @@ food-delivery-app/node_modules
 
 #env
 food-delivery-app/.env
+.env
 
 dist
 dist-ssr
