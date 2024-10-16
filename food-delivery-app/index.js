@@ -46,12 +46,15 @@ app.use('/api/auth', authRoutes);
 app.use('/api/mealtypes', mealtypeRoutes);
 
 
+// mongoose.connect(process.env.MONGO_URI)
+//   .then(() => console.log('Connected to MongoDB Atlas'))
+//   .catch((err) => console.error('Error connecting to MongoDB Atlas:', err));
 
 
 
 
 // MongoDB connection
-mongoose.connect(process.env.MONGO_URI)
+mongoose.connect(process.env.DB_CONNECT_STRING)
   .then(() => console.log('Connected to MongoDB'))
   .catch((err) => console.error('Error connecting to MongoDB:', err));
 
