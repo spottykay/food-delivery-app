@@ -118,6 +118,7 @@ app.use('/api/menuitems', menuItemRoutes);
 
 
 
+<<<<<<< HEAD
 
 
 
@@ -125,6 +126,12 @@ app.use('/api/menuitems', menuItemRoutes);
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log('Connected to MongoDB Atlas'))
   .catch((err) => console.error('Error connecting to MongoDB Atlas:', err));
+=======
+// MongoDB connection
+mongoose.connect(process.env.MONGO_URI)
+  .then(() => console.log('Connected to MongoDB'))
+  .catch((err) => console.error('Error connecting to MongoDB:', err));
+>>>>>>> 25841ca302ba3c7a5837e68c343b35eb16a7f541
 
 // Base route for health check or testing
 app.get('/', (req, res) => {
