@@ -4,7 +4,7 @@ import {Tabs, TabList, Tab, TabPanel} from 'react-tabs'
 import 'react-tabs/style/react-tabs.css';
 import {Carousel} from 'react-bootstrap';
 import '../Components/Styles/Details.css'
-import LightboxGallery from './LightboxGallery';
+// import LightboxGallery from './LightboxGallery';
 
 
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // Import the CSS for styling

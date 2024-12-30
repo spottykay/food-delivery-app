@@ -63,7 +63,7 @@ function Filter() {
     const filteredProducts = productsData
         .filter(product => 
             product.category.toLowerCase() === category.toLowerCase() &&
-            (!selectedLocation || product.address.includes(selectedLocation)) &&
+            (!selectedLocation || product.address.toLowerCase().includes(selectedLocation.toLowerCase())) &&
             (selectedCuisines.length === 0 || selectedCuisines.some(cuisine => product.cuisines.includes(cuisine))) &&
             (!selectedCost || (selectedCost === 'less500' && product.costForTwo < 500) ||
             (selectedCost === '500to1000' && product.costForTwo >= 500 && product.costForTwo <= 1000) ||

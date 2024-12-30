@@ -1,10 +1,10 @@
-import bcrypt from 'bcryptjs';
+// import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import User from '../models/User.js';
 
 const registerUser = async (req, res) => {
-    const { name, email, password } = req.body;
-    if (!name || !email || !password) {
+    const { firstName, lastName, email, password, confirmPassword, mobileNumber, } = req.body;
+    if (!firstName || !lastName || !email || !password || !confirmPassword || !mobileNumber) {
         return res.status(400).json({ msg: 'Please provide name, email, and password' });
     }
 
@@ -15,9 +15,22 @@ const registerUser = async (req, res) => {
        return res.status(400).json({ msg: 'User already exists' });
     }
 
+
+
+    if (password !== confirmPassword){
+        return res.status(400).json({msg: 'Passwords do not match'})
+    }
+
+
+
+
     try {
-        user = new User({ name, email: email.trim(), password });
+
+      
+        user = new User({ firstName, lastName,  email: email.trim(), mobileNumber, password, });
         await user.save();
+
+
 
         // Payload for JWT
         const payload = { user: { id: user.id } };
@@ -31,7 +44,7 @@ const registerUser = async (req, res) => {
             res.json({ token, user });
         });
     } catch (err) {
-        console.error('Server error during registration:', err.message);
+        console.error('Server error during registration:', err.message, err.stack);
         res.status(500).send('Server error');
     }
 }
@@ -40,9 +53,10 @@ const loginUser = async (req, res) => {
     const { email, password } = req.body;
 
     // Validate input
-    if (!email || !password) {
+    if ( !email || !password  ) {
         return res.status(400).json({ msg: 'Please provide both email and password' });
     }
+
 
     try {
         // Find the user by email
@@ -51,7 +65,7 @@ const loginUser = async (req, res) => {
             return res.status(400).json({ msg: 'Invalid credentials _' });
         }
         // Compare the provided password with the stored hash
-        const isMatch = await user.comparePassword(password, user.password);
+        const isMatch = await user.comparePassword(password);
 
         if (!isMatch) {
             return res.status(400).json({ msg: 'Invalid credentials' });
