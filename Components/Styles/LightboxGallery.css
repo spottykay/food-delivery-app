@@ -1,5 +1,5 @@
 .bg{
-background-image: url('./food-for-hero.jpg');
+background-image: url('../../src/assets/food-for-hero.jpg');
 background-size: cover;
 background-position: center;
 background-repeat: no-repeat;

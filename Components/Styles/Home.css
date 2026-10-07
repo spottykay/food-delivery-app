@@ -2,7 +2,6 @@
 
 .hero{
     height: 500px;
-    /* background: url('/Components/food-for-hero.jpg'); */
     background: url('../src/assets/food-for-hero.jpg');
     background-size: cover;
     background-repeat: no-repeat;

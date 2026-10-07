@@ -6,7 +6,7 @@ import App from '../Components/App.jsx'
 
 //Google oauth2 integration
 import { GoogleOAuthProvider } from '@react-oauth/google';
-const clientId = "530605452580-8bmv8e4ujruj5vhniiot4e20798ppdun.apps.googleusercontent.com"; // Replace with your actual Client ID
+const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
 
 
 createRoot(document.getElementById('root')).render(

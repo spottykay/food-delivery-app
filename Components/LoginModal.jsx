@@ -127,7 +127,6 @@ const handleLogin = async (e) => {
     e.preventDefault();
     setLoading(true);
     try {
-        console.log('Logging in with:', { email, password });
         const response = await axios.post('http://localhost:5010/api/auth/login', {
             email,
             password,
